@@ -1,0 +1,14 @@
+replicaCount: 1
+
+image:
+  repository: zpechinger/prom-test-app
+  tag: 0.0.1
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8000
+
+serviceMonitor:
+  enabled: true
+  interval: 15s
