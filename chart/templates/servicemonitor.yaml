@@ -9,6 +9,9 @@ spec:
   selector:
     matchLabels:
       app: {{ include "prom-test-app.name" . }}
+  namespaceSelector:
+    matchNames: 
+      - {{ .Release.Namespace }}
   endpoints:
     - port: http
       interval: {{ .Values.serviceMonitor.interval }}
