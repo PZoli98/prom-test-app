@@ -12,7 +12,7 @@ REQUEST_TIME = Summary('request_processing_seconds', 'Time spent processing requ
 @app.route("/")
 @REQUEST_TIME.time()
 def index():
-    # Randomly simulate 500 errors ~20% of the time
+    # Randomly simulate 500 errors ~10% of the time
     endpoint = "/"
     method = "GET"
     if random.random() < 0.1:
