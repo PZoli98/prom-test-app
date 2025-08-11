@@ -2,7 +2,7 @@ replicaCount: 5
 
 image:
   repository: zpechinger/prom-test-app
-  tag: 0.0.1
+  tag: 0.0.2
   pullPolicy: IfNotPresent
 
 service:
