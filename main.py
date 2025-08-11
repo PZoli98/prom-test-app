@@ -15,7 +15,7 @@ def index():
     # Randomly simulate 500 errors ~20% of the time
     endpoint = "/"
     method = "GET"
-    if random.random() < 0.2:
+    if random.random() < 0.1:
         REQUEST_COUNT.labels(status="500", 
                              endpoint=endpoint, 
                              method=method).inc()
