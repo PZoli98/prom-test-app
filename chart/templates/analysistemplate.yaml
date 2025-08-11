@@ -14,6 +14,6 @@ spec:
       prometheus:
         address: {{ .Values.prometheus.address }}
         query: |
-            sum(rate(http_requests_total{status=~"2.."}[1m]))
+            sum(rate(http_requests_total{status=~"2.."}[5m]))
             /
-            sum(rate(http_requests_total[1m]))
+            sum(rate(http_requests_total[5m]))
