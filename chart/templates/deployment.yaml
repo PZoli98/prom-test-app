@@ -1,11 +1,26 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: {{ include "prom-test-app.fullname" . }}
   labels:
     app: {{ include "prom-test-app.name" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
+  strategy:
+    canary:
+      analysis:
+        name: success-rate-check
+        templates:
+        - templateName: success-rate
+      steps:
+      - setWeight: 20
+      - pause: {duration: 10m}
+      - setWeight: 40
+      - pause: {duration: 10m}
+      - setWeight: 60
+      - pause: {duration: 10m}
+      - setWeight: 80
+      - pause: {duration: 10m}
   selector:
     matchLabels:
       app: {{ include "prom-test-app.name" . }}
