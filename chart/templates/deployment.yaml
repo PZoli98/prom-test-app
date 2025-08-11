@@ -14,13 +14,13 @@ spec:
         - templateName: success-rate
       steps:
       - setWeight: 20
-      - pause: {duration: 10m}
+      - pause: {duration: 2m}
       - setWeight: 40
-      - pause: {duration: 10m}
+      - pause: {duration: 2m}
       - setWeight: 60
-      - pause: {duration: 10m}
+      - pause: {duration: 2m}
       - setWeight: 80
-      - pause: {duration: 10m}
+      - pause: {duration: 2m}
   selector:
     matchLabels:
       app: {{ include "prom-test-app.name" . }}
